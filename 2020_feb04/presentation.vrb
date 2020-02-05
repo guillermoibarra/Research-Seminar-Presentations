@@ -1,0 +1,25 @@
+\frametitle{Compiling with DUB}
+\begin{lstlisting}[frame=single, backgroundcolor=\color{gray!20}, basicstyle=\tiny]
+  $ dub build
+  Performing "debug" build using /usr/bin/dmd for x86_64.
+  gemma_tdd ~master: building configuration "application"...
+  Linking...
+  \end{lstlisting}
+  \pause
+  \begin{lstlisting}[frame=single, backgroundcolor=\color{gray!20}, basicstyle=\tiny]
+  $ dub test
+  Running custom 'unittest' configuration.
+  Performing "unittest" build using /usr/bin/dmd for x86_64.
+  gemma_tdd ~master: building configuration "unittest"...
+  Linking...
+  Running ./tests/dummy
+  ----------------------------------------------------------------
+                             T E S T S
+  ----------------------------------------------------------------
+  Running surfaceSpecificationTest()                        : PASS
+  Running cellSpecificationTest()                           : PASS
+  Running cellDimensionTest()                               : PASS
+  Running pinConsistancyTest()                              : FAIL
+  ----------------------------------------------------------------
+  End of tests. Total: 4 Failed: 1
+  \end{lstlisting}
