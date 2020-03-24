@@ -197,7 +197,7 @@ For isotropic scattering:
 \pause
 For within group scattering:
 \begin{equation*}
-\sigma_{s_0, g \to g'}^T = \frac{1}{\delta_g \delta_g} \int_{E_{g}}^{E_{g+1}} dE \left\{  \int_{E_{g}}^{E} dE' \sigma_{s_0}^T (E \to E') + \int_{E}^{E_{g+1}} dE' \sigma_{s_0}^T (E \to E') \right\}
+\sigma_{s_0, g \to g'}^T = \frac{1}{\delta_g \delta_{g'}} \int_{E_{g}}^{E_{g+1}} dE \left\{  \int_{E_{g}}^{E} dE' \sigma_{s_0}^T (E \to E') + \int_{E}^{E_{g+1}} dE' \sigma_{s_0}^T (E \to E') \right\}
 \end{equation*}
 \end{frame}
 
@@ -205,7 +205,7 @@ For within group scattering:
 \begin{frame}{Test Implementation}
 Multi-group implementation of the scattering kernel with $\delta_g < 10^{-3} eV$
 \begin{align*}
-&\delta_g \to 0, \delta_{g'} \to 0 \Rightarrow \sigma_{s_0, t \to g'}^T \approx \sigma_{s_0}^T (\mean{E}_g \to \mean{E}_{g'}); \\
+&\delta_g \to 0, \delta_{g'} \to 0 \Rightarrow \sigma_{s_0, g \to g'}^T \approx \sigma_{s_0}^T (\mean{E}_g \to \mean{E}_{g'}); \\
 & \mean{E}_g,  \mean{E}_{g'} = \frac{E_{g+1} + E_g}{2}, \frac{E_{g'+1} + E_{g'}}{2}
 \end{align*}
 \end{frame}
