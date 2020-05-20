@@ -9,3 +9,4 @@ Presentations available include:
  - **2020_feb25:** Review of the article: A comparison of acceleration methods for solving the neutron transport k-eigenvalue problem, Willert *et. al.* (2014)
  - **2020_mar24:** Review of the article: Multi-group formulation of the temperature-dependent resonance scattering model and its impact on reactor core parameters, Ghrayeb *et. al.* (2014)
  - **2020_apr28:** Resonance treatment using pin-based pointwise energy slowing-down method, Choi *et. al.* (2017)
+ - **2020_may19:** Subgroup Resonance Calculation Methodology Improvements, a holistic approach. 
