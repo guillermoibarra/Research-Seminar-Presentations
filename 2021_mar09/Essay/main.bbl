@@ -1,0 +1,31 @@
+\begin{thebibliography}{1}
+
+\bibitem{hebert1991generalization}
+A.~H{\'e}bert and G.~Marleau, ``Generalization of the stamm’ler method for
+  the self-shielding of resonant isotopes in arbitrary geometries,'' {\em
+  Nuclear science and engineering}, vol.~108, no.~3, pp.~230--239, 1991.
+
+\bibitem{hebert2009development}
+A.~H{\'e}bert, ``Development of the subgroup projection method for resonance
+  self-shielding calculations,'' {\em Nuclear science and engineering},
+  vol.~162, no.~1, pp.~56--75, 2009.
+
+\bibitem{sugimura2007resonance}
+N.~Sugimura and A.~Yamamoto, ``Resonance treatment based on ultra-fine-group
+  spectrum calculation in the aegis code,'' {\em Journal of nuclear science and
+  technology}, vol.~44, no.~7, pp.~958--966, 2007.
+
+\bibitem{hebert2009applied}
+A.~H{\'e}bert, {\em Applied reactor physics}.
+\newblock Presses inter Polytechnique, 2009.
+
+\bibitem{park2018effective}
+H.~Park and H.~G. Joo, ``Effective subgroup method employing macro level grid
+  optimization,'' {\em PHYSOR 2018}, 2018.
+
+\bibitem{kim2015development}
+K.~S. Kim, M.~L. Williams, D.~Wiarda, and A.~T. Godfrey, ``Development of a new
+  47-group library for the casl neutronics simulators,'' tech. rep., Oak Ridge
+  National Lab.(ORNL), Oak Ridge, TN (United States). Consortium for~…, 2015.
+
+\end{thebibliography}

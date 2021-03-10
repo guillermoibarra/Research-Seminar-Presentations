@@ -1,4 +1,4 @@
-\documentclass[sans,mathserif,aspectratio=169, 10pt]{beamer}
+\documentclass[sans,mathserif,aspectratio=169]{beamer}
 
 \usepackage{booktabs}
 \usepackage[spanish, mexico]{babel}
@@ -21,7 +21,7 @@
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 \newcommand*\mean[1]{\overbar{#1}}
 
-\newcommand\Fontvi{\fontsize{9}{7.2}\selectfont}
+
 \definecolor{foldercolor}{RGB}{124,166,198}
 
 \tikzset{pics/folder/.style={code={%
@@ -56,6 +56,13 @@
     backgroundcolor=\color{background}
 }
 
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
 \mode<presentation>
 
 %Colors
@@ -80,8 +87,7 @@
 
 \defbeamertemplate*{title page}{customized}[1][]
 {\centering
-  \usebeamerfont{title}\usebeamercolor[fg]{title}{\bfseries\inserttitle}\par
-  \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+  \fcolorbox{fall}{white}{\includegraphics[width=0.80\linewidth]{cover.png}}
   \vfill
   \usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par
   \vfill
@@ -131,10 +137,10 @@
 \makeatother
 
 %Title
-\title{Evaluated Nuclear  Data}
-\subtitle{background and applications}
+\title{Code Development Environment}
+\subtitle{Experiences and Outlook}
 \author[Guillermo Ibarra]{Guillermo Ibarra}
-\date{Nuclear Engineering Research Seminar, October 13th, 2020}
+\date{Nuclear Engineering Research Seminar, March 9th, 2021}
 
 \definecolor{keywords}{RGB}{255,0,90}
 \definecolor{comments}{RGB}{0,0,113}
@@ -146,6 +152,7 @@
   again covered={\opaqueness<1->{40}}}
 \beamertemplatenavigationsymbolsempty
 
+
 \begin{document}
 
 %slide
@@ -153,90 +160,154 @@
 \titlepage
 \end{frame}
 
-\begin{frame}{Talking Points}
-\begin{itemize}
-	\item<1> Evaluation Methodology
-	\item<2> Neutron Data for Actinides
-	\item<3> Neutron Data for Other Materials
-	\item<5> Other Nuclear Data of Interest
-	\item<6> Evaluated Nuclear Data Libraries
-\end{itemize}
+\begin{frame}
+\centering
+\fcolorbox{fall}{white}{\includegraphics[width=0.70\linewidth]{generalCalculation.png}}
+\blfootnote{Image credit: Cacuci, D. G. (Ed.). (2010). Handbook of Nuclear Engineering:  Springer Science \& Business Media. }
 \end{frame}
 
 %slide
-\begin{frame}{Neutron Evaluation Background}
-\begin{itemize}
-	\item<1> Large energy spectrum: 10$^{-5}$ to $2.0 \times 10^{7}$ eV
-	\item<2> About 400 atomic nuclei, $A=1-250$
-	\item<3> Measured data + physics based models
-\end{itemize}
-\end{frame}
-
-%slide
-\begin{frame}{Cross Section Plot}
+\begin{frame}{Energy Self-Shielding}
   \centering
-	\fcolorbox{fall}{white}{\includegraphics[width=0.60\linewidth]{1v-Law.png}}
-\end{frame}
-
-
-%slide
-\begin{frame}{Evaluation Techniques}
-	\centering
-	\fcolorbox{fall}{white}{\includegraphics[width=0.60\linewidth]{solution.png}}
+	\fcolorbox{fall}{white}{\includegraphics[width=0.70\linewidth]{energy2.png}}
 \end{frame}
 
 %slide
-\begin{frame}{Fission Spectrum}
+\begin{frame}{Energy Self-Shielding}
   \centering
-	\fcolorbox{fall}{white}{\includegraphics[width=0.60\linewidth]{spectrum.png}}
+	\fcolorbox{fall}{white}{\includegraphics[width=0.70\linewidth]{energy1.png}}
 \end{frame}
 
 %slide
-\begin{frame}{Neutron Data for Actinides}
-\begin{itemize}
-	\item<1> U$^{235}$, U$^{238}$, Pu$^{239}$
-	\item<2> Np, Am, Cm, other U and Pu
-	\item<3> Delayed Neutrons 
+\begin{frame}{Spatial Self-Shielding}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=0.80\linewidth]{spatial.png}}
+\end{frame}
+
+%slide
+\begin{frame}{Resonance Calculations}{Brief Introduction}
+Self shielding factors:
+\begin{itemize}[<+->]
+	\item Fuel composition
+	\item Fuel to coolant ratio
+	\item Fuel pin spatial arrangement within the lattice,
+  \item Fuel region subdivision, and
+  \item Temperature.
 \end{itemize}
 \end{frame}
 
 %slide
-\begin{frame}{Nuetron Data for Other Materials}
-\begin{itemize}
-	\item<1> Light nuclei
-	\item<2> Structural Materials
-	\item<3> Fission Products
+\begin{frame}{Resonance Calculations}{Brief Introduction}
+Traditional solution methods:
+\begin{itemize}[<+->]
+	\item Equivalence theory
+	\item Ultrafine group method
+	\item Subgroup method
 \end{itemize}
 \end{frame}
 
 %slide
-\begin{frame}{Other Data of Interest}
-\begin{itemize}
-  \item<1> Fission Yields
-	\item<2> Thermal Neutron Scattering
-	\item<3> Decay Data
+\begin{frame}{Fine-mesh Subgroup Method (FSM)}{Proposal}
+Traditional solution methods:
+\begin{itemize}[<+->]
+	\item 408 group structure: 56 fast, 289 resonance, 63 thermal
+	\item Micro level interpolation optimization
+	\item Condensed 47 group structure with 16 resonance groups
+	\item Only down-scattering source for resonance groups
 \end{itemize}
 \end{frame}
 
 %slide
-\begin{frame}{Evaluation Techniques}
-\begin{itemize}
-  \item<1> General Purpose Libraries
-	\begin{itemize}
-		\item ENDF
-		\item JEFF
-		\item JENDL
-		\item CENDL
-	\end{itemize}
-	\item<2> Specialized Purpose Libraries
-	\begin{itemize}
-	 	\item International Reactor Dosimetry File, IRDF
-		\item Fusion Evaluated Nuclear Data Library, FENDL
-		\item European Activation File, EAF
-	\end{itemize}
-\end{itemize}
+\begin{frame}{Single Cell Problems}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=0.80\linewidth]{single.png}}
 \end{frame}
 
+\begin{frame}{Typical UO$_2$ Pellet}{U-238 Absorption}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=0.60\linewidth]{fig3.png}}
+\end{frame}
+
+\begin{frame}{Typical UO$_2$ Pellet}{U-235}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=0.80\linewidth]{fig4.png}}
+\end{frame}
+
+\begin{frame}{Typical UO$_2$ Pellet}{Results}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=1.0\linewidth]{tab2.png}}
+\end{frame}
+
+\begin{frame}{Burnup UO$_2$ Pellet}{U-238}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=0.80\linewidth]{fig5.png}}
+\end{frame}
+
+\begin{frame}{Burnup UO$_2$ Pellet}{Pu-239}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=0.80\linewidth]{fig6.png}}
+\end{frame}
+
+\begin{frame}{Burnup UO$_2$ Pellet}{Pu-240}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=0.80\linewidth]{fig7.png}}
+\end{frame}
+
+\begin{frame}{Burnup UO$_2$ Pellet}{Results}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=1.0\linewidth]{tab3.png}}
+\end{frame}
+
+%slide
+\begin{frame}{lattice Problems}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=0.80\linewidth]{fig8.png}}
+\end{frame}
+
+\begin{frame}{UO$_2$-MOX Lattice}{Pin 3 - MOX}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=0.8\linewidth]{fig9.png}}
+\end{frame}
+
+\begin{frame}{UO$_2$-MOX Lattice}{Pin 1 - UO$_2$}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=0.8\linewidth]{fig10.png}}
+\end{frame}
+
+\begin{frame}{UO$_2$-MOX Lattice}{Results}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=\linewidth]{tab4.png}}
+\end{frame}
+
+%slide
+\begin{frame}{lattice Problems}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=0.80\linewidth]{fig8.png}}
+\end{frame}
+
+\begin{frame}{BWR lattice with Gadolinium}{Pin 1 - Gd}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=0.8\linewidth]{fig11.png}}
+\end{frame}
+
+\begin{frame}{BWR lattice with Gadolinium}{Pin 1 - Gd}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=0.5\linewidth]{fig12.png}}
+\end{frame}
+
+\begin{frame}{BWR lattice with Gadolinium}{Results}
+  \centering
+	\fcolorbox{fall}{white}{\includegraphics[width=\linewidth]{tab5.png}}
+\end{frame}
+
+%slide
+\begin{frame}{Thoughts}{}
+\begin{itemize}[<+->]
+	\item Only downscattering source term
+	\item How important is the speed up?
+	\item Micro optimization worth exploring
+\end{itemize}
+\end{frame}
 
 %slide
 \begin{frame}

@@ -1,0 +1,49 @@
+\documentclass[10pt]{article}
+
+\usepackage{xcolor}
+
+\usepackage{geometry}
+\newgeometry{top=2.5cm,bottom=2.5cm,right=2.5cm,left=3cm}
+
+\title{\textbf{Review of: Improvements of subgroup method based on fine group slowing-down calculation for resonance self-shielding treatment}}
+\author{Guillermo Ibarra}
+\date{March 09, 2021}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+\subsection{Article information}
+
+Title: Improvements of subgroup method based on fine group slowing-down calculation for resonance self-shielding treatment. Authors: Song Li, Zhijian Zhang, Qian Zhang, Qiang Zhao, Annals of Nuclear Energy 136 (2020) 106992.
+
+\subsection{Introduction}
+
+Within the realm of reactor physics numerical calculations, resonance self shielding treatment is one of the most crucial procedures. This self shielding calculation generates problem specific nuclear cross sections for the problem by considering it's materials and geometry. Accurate modeling of the resonance self shielding effect is somewhat difficult as there are many complex factors in play, such as: 
+\begin{itemize}
+  \item Fuel composition,
+  \item Fuel to coolant ratio,
+  \item Fuel pin spatial arrangement within the lattice,
+  \item Fuel region subdivision, and
+  \item Temperature.
+\end{itemize}
+
+Different resonance self shielding solution methods handle the aforementioned factors in distinct ways. Historically, these traditional deterministic solution methods include equivalence theory \cite{hebert1991generalization}, subgroup method \cite{hebert2009development}, and the ultra fine method \cite{sugimura2007resonance}. Essentially equivalence theory is simple and quick but lacks the ability to treat complicated geoemetries and the spatial self shielding effect, while the ultra fine method evaluates the resonance cross sections using an extremely fine energy mesh, which in turn better represents the varitions. Between these two methods, the ultra fine method will more accurately describe the resonance self shielding effect; however, this comes at a price of computation time and memory. A middle ground in terms of accuracy and computational resources is the subgroup method, which subdivides the neutron energy group according to it's magnitud of the value of the cross section. Such that with only a few subdivisions of an conventional resonance energy group, one can expect a similar accuracy to that of the thousands of energy groups used in the ultra fine method. \\
+
+This work proposes the fine-mesh subgroup method (FSM), which couples the subgroup method and the ultra fine method. From 1.8554 eV to 9118 eV, a 289 energy group structure is proposed and the subgroup parameters are generated for each group with the fitting method \cite{hebert2009applied}. To offset the computation time requiered in using a finer mesh, a micro level optimization in which the subgroup flux can be obtained by interpolation \cite{park2018effective}. Self shielding effect is modeling using the 289 energy group structure in the resonance energy region. The slowing down equations for the 289 energy groups are solved and theses fluxes are used in the energy group condensation. In the condensed group structure of 47 enery groups with 16 resonance groups \cite{kim2015development} the eigenvalue calculation is performed. For these 16 resonance groups, the fission source and up-scattering effect can be neglected, such that the source term only considers the down-scattering effect. 
+
+\section{Findings}
+
+For a typical UO$_2$ fuel pellet, historically the subgroup method has trouble dealing with the resonance interference effect, producing as much as an absolute maximum error of 30\%. While the UFM provided results similar to the ultra fine group method, but at a 40x speedup. \\
+
+When dealing with burn-up, the rim effect or the accumulation of resonant nuclides near the surface of the fuel rod will cause large variations along the radial direction. For this case, the resonance peaks for U-238 and Pu isotopes for the energy regions 6.476 eV–7.338 eV and 13.71 eV–29.02 eV, respectfully, are of great interest. Both the FSM and ultra fine method produced accurate results with a maximum error of less than 2\% for the absorption cross sections of the isotopes of interest. \\
+
+A 4x4 BWR lattice with gadolinium is considered as a reference problem. The absorption cross sections of U-238, U-235, Gd-155 and Gd-156 are observed. As expected, the resonance peaks of the Gd isotopes produce the largest errors. FSM and the ultra fine method handle these effects well, while the subgroup method shows large deviations from the MCNP reference value. \\
+
+Overall the FSM produces a great improvement in efficiency when compared with the ultra fine group method. However it has a considerable computational burden in relation to the traditional subgroup method. Efficiency for the FSM method comes from the one-group micro level optimization, in which each resonance nuclide only solves the fixed source equation for each subgroup 8 times for each region and an interpolation process between the escape cross section. 
+
+\bibliography{biblio}
+\bibliographystyle{ieeetr}
+
+\end{document}

@@ -12,3 +12,5 @@ Presentations available include:
  - **2020_may19:** Subgroup Resonance Calculation Methodology Improvements, a holistic approach. 
  - **2020_jun09:** Thesis Project Progress Report, Development of an Improved Subgroup Method for Resonance Calculations.
  - **2020_oct13:** Evaluated Nuclear Data, background and applications. Includes 2 page essay/summary report. 
+ - **2020_dec08:** Proposed Verification Methodology for Resonance Calculations in Gemma
+ - **2021_mar09:** Review of: Improvements of subgroup method based on fine group slowing-down calculation for resonance self-shielding treatment
